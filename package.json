@@ -1,0 +1,21 @@
+{
+  "name": "gatecoinjs",
+  "version": "1.0.0",
+  "description": "A NodeJS library for Gatecoin Crypto API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gatecoin",
+    "javascript",
+    "gatecoinjs",
+    "gatecoin api"
+  ],
+  "author": "Linc Do - www.lincdh.com",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1"
+  }
+}
