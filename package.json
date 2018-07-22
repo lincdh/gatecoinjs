@@ -1,6 +1,6 @@
 {
   "name": "gatecoinjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A NodeJS library for Gatecoin Crypto API",
   "main": "index.js",
   "scripts": {

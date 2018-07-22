@@ -134,7 +134,7 @@ gatecoinjs.getRate({
 ```
 </details>
 
-Place an ask order
+Place a limit ask order
 
 ```javascript
 // sell 0.0002 btc in 1btc = 10000usd rate
@@ -162,7 +162,7 @@ gatecoinjs.sell({
 ```
 </details>
 
-Place a bid order
+Place a limit bid order
 
 ```javascript
 // buy 0.0002 btc in 1btc = 10000usd rate
@@ -172,6 +172,56 @@ gatecoinjs.buy({
     amount: 0.0002,
     //optional if you want your rate to be traded, if not completed, it will go into open orders
     priceyouwant: 10000
+}, function(err, res) {
+    console.log(res)
+});
+```
+
+<details>
+    <summary>View Response</summary>
+```javascript
+   {
+       success: true,
+        data: {
+            status: 'created',
+            info: {clOrderId: "BK11591047730", code: "BTCHKD", initialQuantity: 0.0002, ...}
+        }
+   }
+```
+</details>
+
+Place a market ask order
+
+```javascript
+gatecoinjs.sell({
+    currency1: 'BTC',
+    currency2: 'USD',
+    amount: 0.0002
+}, function(err, res) {
+    console.log(res)
+});
+```
+
+<details>
+    <summary>View Response</summary>
+```javascript
+   {
+       success: true,
+        data: {
+            status: 'created',
+            info: {clOrderId: "BK11591047730", code: "BTCHKD", initialQuantity: 0.0002, ...}
+        }
+   }
+```
+</details>
+
+Place a market bid order
+
+```javascript
+gatecoinjs.buy({
+    currency1: 'BTC',
+    currency2: 'USD',
+    amount: 0.0002
 }, function(err, res) {
     console.log(res)
 });
