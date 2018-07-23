@@ -58,19 +58,6 @@ gatecoinjs.getAllRates(function(err, res){
     console.log(res);
 });
 ```
-<details>
-    <summary>View Response</summary>
-```javascript
-   {
-       responseStatus: Object {message: "OK"},
-       tickers: [
-           {ask: 6478.2, askQ: 3.1392, bid: 6336.1, bidQ: 3, …},
-           {ask: 65994, askQ: 0.0004664, bid: 61500, bidQ: 0.1, …},
-           {ask: 7584, askQ: 0.006, bid: 7567, bidQ: 0.01, …}
-       ]
-   } 
-```
-</details>
 
 Get one rate
 ```javascript
@@ -82,13 +69,6 @@ gatecoinjs.getRate({
 });
 ```
 
-<details>
-    <summary>View Response</summary>
-```javascript
-   {ask: 7599, askQ: 0.01, bid: 7568, bidQ: 0.01, …}
-```
-</details>
-
 ### Auth APIs
 
 Get all balances
@@ -98,20 +78,6 @@ gatecoinjs.getAllBalances(function(err, res) {
     console.log(res);
 })
 ```
-
-<details>
-    <summary>View Response</summary>
-```javascript
-   {data: {
-       balances: [
-           {availableBalance: 17.56, balance: 17.56, currency: "USD", ...},
-           {availableBalance: 7.93, balance: 7.93, currency: "EUR", …},
-           ...
-       ],
-       responseStatus: {message: "OK"}
-   }, success: true}
-```
-</details>
 
 Get one balance
 
@@ -123,16 +89,6 @@ gatecoinjs.getRate({
     console.log(res);
 });
 ```
-
-<details>
-    <summary>View Response</summary>
-```javascript
-   {data: {
-       balance: {availableBalance: 0.012, balance: 0.012, currency: "BTC", …},
-       responseStatus: {message: "OK"}
-   }, success: true}
-```
-</details>
 
 Place a limit ask order
 
@@ -149,19 +105,6 @@ gatecoinjs.sell({
 });
 ```
 
-<details>
-    <summary>View Response</summary>
-```javascript
-   {
-       success: true,
-        data: {
-            status: 'created',
-            info: {clOrderId: "BK11591047730", code: "BTCHKD", initialQuantity: 0.0002, ...}
-        }
-   }
-```
-</details>
-
 Place a limit bid order
 
 ```javascript
@@ -177,21 +120,7 @@ gatecoinjs.buy({
 });
 ```
 
-<details>
-    <summary>View Response</summary>
-```javascript
-   {
-       success: true,
-        data: {
-            status: 'created',
-            info: {clOrderId: "BK11591047730", code: "BTCHKD", initialQuantity: 0.0002, ...}
-        }
-   }
-```
-</details>
-
 Place a market ask order
-
 ```javascript
 gatecoinjs.sell({
     currency1: 'BTC',
@@ -201,19 +130,6 @@ gatecoinjs.sell({
     console.log(res)
 });
 ```
-
-<details>
-    <summary>View Response</summary>
-```javascript
-   {
-       success: true,
-        data: {
-            status: 'created',
-            info: {clOrderId: "BK11591047730", code: "BTCHKD", initialQuantity: 0.0002, ...}
-        }
-   }
-```
-</details>
 
 Place a market bid order
 
@@ -227,43 +143,14 @@ gatecoinjs.buy({
 });
 ```
 
-<details>
-    <summary>View Response</summary>
-```javascript
-   {
-       success: true,
-        data: {
-            status: 'created',
-            info: {clOrderId: "BK11591047730", code: "BTCHKD", initialQuantity: 0.0002, ...}
-        }
-   }
-```
-</details>
-
 Get an order by id
-
 ```javascript
 gatecoinjs.getOrderById({orderId: 'BK11591047730'}, function (err, res) {
     console.log(res);
 });
 ```
 
-<details>
-    <summary>View Response</summary>
-```javascript
-   {
-       success: true,
-        data: {
-            order: {clOrderId: "BK11591047730", code: "BTCHKD", …},
-            responseStatus: Object {message: "OK"}
-        }
-   }
-```
-
-</details>
-
 Get all open orders
-
 ```javascript
 gatecoinjs.getOpenOrders(function(err, res) {
     console.log(res);
@@ -271,7 +158,6 @@ gatecoinjs.getOpenOrders(function(err, res) {
 ```
 
 Get all open orders by currency pair
-
 ```javascript
 gatecoinjs.getOpenOrders({currencyPair: 'BTCUSD'}, function(err, res) {
     console.log(res);
@@ -279,9 +165,22 @@ gatecoinjs.getOpenOrders({currencyPair: 'BTCUSD'}, function(err, res) {
 ```
 
 Get all transactions
-
 ```javascript
 gatecoinjs.getAllTransactions(function(err, res) {
+    console.log(res);
+});
+```
+
+Cancel an open order by order id
+```javascript
+gatecoinjs.cancelOpenOrders({orderId: 'BK11591047730'}, function (err, res) {
+    console.log(res);
+});
+```
+
+Cancel all open orders
+```javascript
+gatecoinjs.cancelOpenOrders(function(err, res) {
     console.log(res);
 });
 ```
