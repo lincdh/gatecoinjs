@@ -9,12 +9,20 @@ npm install --save gatecoinjs
 ```
 
 ### Getting started
+#### From version 1.0.6 classes support so you can have as many gatecoin accounts in your projects as you want. If you use older versions (the connect function still works) and you update to the lastest version, your gatecoin functions will not work so modify just api settings as bellow
 
 ```javascript
-const gatecoinjs = require('gatecoinjs');
-gatecoinjs.connect({
+
+const gatecoinNodeJS = require('gatecoinjs');
+const gatecoinjs = new gatecoinNodeJS({
     publicKey: 'API public key',
     secretKey: 'Api secret key'
+});
+
+// if you have another gatecoin account
+const gatecoinjs_2 = new gatecoinNodeJS({
+    publicKey: 'API public key 2',
+    secretKey: 'Api secret key 2'
 });
 ```
 
